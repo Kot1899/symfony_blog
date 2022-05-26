@@ -7,6 +7,6 @@ kernel:
     type: annotation
 
 
-user_test:
-    path: /user/test
-    controller: App\Controller\userController::test
+#user_test:
+#    path: /user/test
+#    controller: App\Controller\userController::test

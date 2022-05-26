@@ -38,6 +38,9 @@
       <excludeFolder url="file://$MODULE_DIR$/source/vendor/symfony/framework-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/source/vendor/symfony/http-foundation" />
       <excludeFolder url="file://$MODULE_DIR$/source/vendor/symfony/http-kernel" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/doctrine/annotations" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/doctrine/lexer" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/sensio/framework-extra-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
