@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+
+    <h1>Edit the post "{{ post.name }}"</h1>
+
+    <div class="row">
+        <div class="col-4">
+            {{ form(postForm) }}
+        </div>
+    </div>
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#post_form_translations_en_description' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+{% endblock %}
+

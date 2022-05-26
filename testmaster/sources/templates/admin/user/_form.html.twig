@@ -1,0 +1,15 @@
+{{ form_start(form) }}
+<div class="form-group">
+    {{ form_label(form.login) }}
+    {{ form_widget(form.login) }}
+    {{ form_errors(form.login) }}
+</div>
+<div class="form-group">
+    {{ form_label(form.avatar) }}
+    {{ form_widget(form.avatar) }}
+    {{ form_errors(form.avatar) }}
+</div>
+<div>
+    <button class="btn btn-sm btn-primary float-right m-t-n-xs" type="submit"><strong>Save</strong></button>
+</div>
+{{ form_end(form) }}

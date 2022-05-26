@@ -1,0 +1,40 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block content %}
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h2>User list</h2>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ path('admin_index') }}">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{{ path('admin_user_index') }}">Users</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <strong>edit</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="ibox ">
+                    <div class="ibox-title">
+                        <h5>Edit user form</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                {% include 'admin/user/_form.html.twig' %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from webapplayers.com/inspinia_admin-v2.5/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Apr 2016 19:23:29 GMT -->
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{% block title %}Dashboard | Burm{% endblock %}</title>
+
+    <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="{{ asset('admin/css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('admin/css/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+<div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <span>
+                            <svg width="178px" height="50px" viewBox="0 0 178 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>logo</title>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="logo">
+                                        <g id="Group-4-Copy-5">
+                                            <rect id="Rectangle" fill="#007CED" x="0" y="0" width="50" height="50" rx="25"></rect>
+                                            <g id="Group-2-Copy" transform="translate(8.000000, 11.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                                                <path d="M24.1642959,3.81639425 C26.7209184,3.81639425 28.6600925,4.3064803 29.9818181,5.28665241 C31.3035437,6.26682451 31.9644065,7.70328364 31.9644065,9.59602977 C31.9644065,10.6293147 31.6990966,11.5394745 31.1684768,12.3265092 C30.6378571,13.113544 29.8998132,13.6905418 28.9543453,14.0575028 C30.0348801,14.3278951 30.8862836,14.8735082 31.5085559,15.6943419 C32.1308281,16.5151757 32.4419643,17.51949 32.4419643,18.7072848 C32.4419643,20.7352271 31.7955729,22.2706691 30.5027902,23.3136108 C29.2100075,24.3565526 27.3673098,24.8876803 24.974697,24.906994 L24.974697,24.906994 L16.7838573,24.906994 L16.7830446,19.483 L9.95852864,19.483697 L11.7493954,14.6629884 L16.7830446,14.662 L16.7838573,3.81639425 Z M15.1322484,-1.20792265e-13 L5.80937001,24.8617418 L0.885044643,24.8617418 L10.3870581,-1.20792265e-13 L15.1322484,-1.20792265e-13 Z M24.9558212,16.3682234 L20.9761729,16.3682234 L20.9761729,22.0609471 L24.6953351,22.0609471 C25.7179841,22.0609471 26.5163257,21.8171112 27.0903598,21.3294393 C27.6643939,20.8417675 27.951411,20.168201 27.951411,19.3087397 C27.951411,17.3773661 26.9528811,16.397194 24.9558212,16.3682234 L24.9558212,16.3682234 Z M24.0151771,7.98123349 L20.9761729,7.98123349 L20.9761729,13.2973393 L24.1888345,13.2973393 C26.3788469,13.2587119 27.4738532,12.3847653 27.4738532,10.6754997 C27.4738532,9.71946974 27.1964838,9.03141789 26.6417449,8.61134413 C26.0870061,8.19127037 25.2114835,7.98123349 24.0151771,7.98123349 L24.0151771,7.98123349 Z" id="Combined-Shape"></path>
+                                            </g>
+                                        </g>
+                                        <path d="M63.9609375,33.5546875 L64.9453125,30.6484375 L71.0859375,30.6484375 L72.0703125,33.5546875 L76.3125,33.5546875 L70.359375,17.1015625 L65.71875,17.1015625 L59.765625,33.5546875 L63.9609375,33.5546875 Z M70.0546875,27.5546875 L66,27.5546875 L68.015625,21.53125 L70.0546875,27.5546875 Z M82.125,33.5546875 L82.125,16.2109375 L78.1171875,16.2109375 L78.1171875,33.5546875 L82.125,33.5546875 Z M90.84375,33.7421875 C91.90625,33.7421875 92.8671875,33.546875 93.7265625,33.15625 C94.5859375,32.765625 95.3007813,32.2265625 95.8710938,31.5390625 C96.4414062,30.8515625 96.8359375,30.078125 97.0546875,29.21875 L97.0546875,29.21875 L92.7890625,29.21875 C92.3984375,30.0625 91.703125,30.484375 90.703125,30.484375 C90.03125,30.484375 89.4648437,30.2695312 89.0039062,29.8398437 C88.5429687,29.4101562 88.28125,28.7890625 88.21875,27.9765625 L88.21875,27.9765625 L97.2890625,27.9765625 C97.3359375,27.5703125 97.359375,27.1796875 97.359375,26.8046875 C97.359375,25.4921875 97.0820312,24.34375 96.5273437,23.359375 C95.9726562,22.375 95.203125,21.6171875 94.21875,21.0859375 C93.234375,20.5546875 92.109375,20.2890625 90.84375,20.2890625 C89.546875,20.2890625 88.3984375,20.5625 87.3984375,21.109375 C86.3984375,21.65625 85.6210937,22.4375 85.0664062,23.453125 C84.5117187,24.46875 84.234375,25.65625 84.234375,27.015625 C84.234375,28.375 84.515625,29.5625 85.078125,30.578125 C85.640625,31.59375 86.421875,32.375 87.421875,32.921875 C88.421875,33.46875 89.5625,33.7421875 90.84375,33.7421875 Z M93.2578125,25.75 L88.2421875,25.75 C88.3515625,25.03125 88.6367187,24.4765625 89.0976562,24.0859375 C89.5585937,23.6953125 90.125,23.5 90.796875,23.5 C91.5,23.5 92.0859375,23.703125 92.5546875,24.109375 C93.0234375,24.515625 93.2578125,25.0625 93.2578125,25.75 L93.2578125,25.75 Z M102.585937,33.5546875 L104.695312,29.921875 L107.203125,33.5546875 L111.703125,33.5546875 L107.203125,27.0625 L111.585937,20.4765625 L107.25,20.4765625 L105.140625,24.0859375 L102.632813,20.4765625 L98.1328125,20.4765625 L102.5625,26.875 L98.25,33.5546875 L102.585937,33.5546875 Z M124.664062,33.5546875 C125.757812,33.5546875 126.707031,33.3632812 127.511719,32.9804687 C128.316406,32.5976562 128.929687,32.0742187 129.351562,31.4101562 C129.773437,30.7460938 129.984375,30 129.984375,29.171875 C129.984375,28.515625 129.839844,27.8984375 129.550781,27.3203125 C129.261719,26.7421875 128.871094,26.2578125 128.378906,25.8671875 C127.886719,25.4765625 127.34375,25.234375 126.75,25.140625 C127.609375,24.859375 128.300781,24.4023437 128.824219,23.7695313 C129.347656,23.1367187 129.609375,22.3359375 129.609375,21.3671875 C129.609375,20.5859375 129.414062,19.8828125 129.023437,19.2578125 C128.632812,18.6328125 128.046875,18.1367187 127.265625,17.7695313 C126.484375,17.4023437 125.539062,17.21875 124.429687,17.21875 L124.429687,17.21875 L118.570312,17.21875 L118.570312,33.5546875 L124.664062,33.5546875 Z M124.289062,24.2734375 L120.703125,24.2734375 L120.703125,18.9765625 L124.242187,18.9765625 C125.273437,18.9765625 126.0625,19.2109375 126.609375,19.6796875 C127.15625,20.1484375 127.429688,20.796875 127.429688,21.625 C127.429688,22.453125 127.15625,23.1015625 126.609375,23.5703125 C126.0625,24.0390625 125.289062,24.2734375 124.289062,24.2734375 L124.289062,24.2734375 Z M124.476562,31.796875 L120.703125,31.796875 L120.703125,26.03125 L124.40625,26.03125 C125.453125,26.03125 126.289062,26.2929687 126.914062,26.8164062 C127.539062,27.3398437 127.851562,28.0546875 127.851562,28.9609375 C127.851562,29.8515625 127.554687,30.546875 126.960937,31.046875 C126.367188,31.546875 125.539062,31.796875 124.476562,31.796875 L124.476562,31.796875 Z M138.09375,33.7421875 C138.96875,33.7421875 139.769531,33.5585938 140.496094,33.1914063 C141.222656,32.8242187 141.789062,32.3125 142.195312,31.65625 L142.195312,31.65625 L142.195312,33.5546875 L144.328125,33.5546875 L144.328125,20.7109375 L142.195312,20.7109375 L142.195312,27.765625 C142.195312,29.109375 141.867188,30.1328125 141.210938,30.8359375 C140.554688,31.5390625 139.65625,31.890625 138.515625,31.890625 C137.40625,31.890625 136.53125,31.5507812 135.890625,30.8710937 C135.25,30.1914062 134.929688,29.21875 134.929688,27.953125 L134.929688,27.953125 L134.929688,20.7109375 L132.820312,20.7109375 L132.820312,28.234375 C132.820312,29.421875 133.050781,30.4296875 133.511719,31.2578125 C133.972656,32.0859375 134.601562,32.7070312 135.398437,33.1210937 C136.195312,33.5351562 137.09375,33.7421875 138.09375,33.7421875 Z M150.070313,33.5546875 L150.070313,26.5703125 C150.070313,23.9765625 151.265625,22.6796875 153.65625,22.6796875 L153.65625,22.6796875 L154.21875,22.6796875 L154.21875,20.4765625 C153.21875,20.4765625 152.371094,20.6796875 151.675781,21.0859375 C150.980469,21.4921875 150.445312,22.0625 150.070313,22.796875 L150.070313,22.796875 L150.070313,20.7109375 L147.9375,20.7109375 L147.9375,33.5546875 L150.070313,33.5546875 Z M158.8125,33.5546875 L158.8125,26.4765625 C158.8125,25.1328125 159.140625,24.1054688 159.796875,23.3945312 C160.453125,22.6835937 161.335937,22.328125 162.445312,22.328125 C163.523438,22.328125 164.378906,22.6679687 165.011719,23.3476562 C165.644531,24.0273437 165.960937,25.0078125 165.960937,26.2890625 L165.960937,26.2890625 L165.960937,33.5546875 L168.070312,33.5546875 L168.070312,26.4765625 C168.070312,25.1328125 168.398438,24.1054688 169.054688,23.3945312 C169.710938,22.6835937 170.59375,22.328125 171.703125,22.328125 C172.78125,22.328125 173.636719,22.6679687 174.269531,23.3476562 C174.902344,24.0273437 175.21875,25.0078125 175.21875,26.2890625 L175.21875,26.2890625 L175.21875,33.5546875 L177.328125,33.5546875 L177.328125,25.984375 C177.328125,24.796875 177.101563,23.7890625 176.648438,22.9609375 C176.195312,22.1328125 175.578125,21.5117188 174.796875,21.0976562 C174.015625,20.6835937 173.125,20.4765625 172.125,20.4765625 C171.109375,20.4765625 170.1875,20.7265625 169.359375,21.2265625 C168.53125,21.7265625 167.9375,22.4296875 167.578125,23.3359375 C167.171875,22.3984375 166.554688,21.6875 165.726562,21.203125 C164.898438,20.71875 163.945312,20.4765625 162.867188,20.4765625 C162.007812,20.4765625 161.222656,20.65625 160.511719,21.015625 C159.800781,21.375 159.234375,21.890625 158.8125,22.5625 L158.8125,22.5625 L158.8125,20.7109375 L156.679687,20.7109375 L156.679687,33.5546875 L158.8125,33.5546875 Z" id="AlexBurm" fill="#ffffff" fill-rule="nonzero"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </span>
+
+                    </div>
+                    <div class="logo-element">
+                        AB
+                    </div>
+                </li>
+                <li>
+                    <a href="{{ path('admin_user_index') }}"><i class="fa fa-users"></i> <span class="nav-label">Users</span></a>
+                </li>
+                <li>
+                    <a href="{{ path('admin_post_index') }}"><i class="fa fa-file-text"></i> <span class="nav-label">Posts</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="graph_flot.html">Flot Charts</a></li>
+                        <li><a href="graph_morris.html">Morris.js Charts</a></li>
+                        <li><a href="graph_rickshaw.html">Rickshaw Charts</a></li>
+                        <li><a href="graph_chartjs.html">Chart.js</a></li>
+                        <li><a href="graph_chartist.html">Chartist</a></li>
+                        <li><a href="c3.html">c3 charts</a></li>
+                        <li><a href="graph_peity.html">Peity Charts</a></li>
+                        <li><a href="graph_sparkline.html">Sparkline Charts</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    <form role="search" class="navbar-form-custom" action="http://webapplayers.com/inspinia_admin-v2.5/search_results.html">
+                        <div class="form-group">
+                            <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                        </div>
+                    </form>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                            <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-messages">
+                            <li>
+                                <div class="dropdown-messages-box">
+                                    <a href="profile.html" class="pull-left">
+                                        <img alt="image" class="img-circle" src="img/a7.jpg">
+                                    </a>
+                                    <div class="media-body">
+                                        <small class="pull-right">46h ago</small>
+                                        <strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
+                                        <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <div class="dropdown-messages-box">
+                                    <a href="profile.html" class="pull-left">
+                                        <img alt="image" class="img-circle" src="img/a4.jpg">
+                                    </a>
+                                    <div class="media-body ">
+                                        <small class="pull-right text-navy">5h ago</small>
+                                        <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br>
+                                        <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <div class="dropdown-messages-box">
+                                    <a href="profile.html" class="pull-left">
+                                        <img alt="image" class="img-circle" src="img/profile.jpg">
+                                    </a>
+                                    <div class="media-body ">
+                                        <small class="pull-right">23h ago</small>
+                                        <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>
+                                        <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <div class="text-center link-block">
+                                    <a href="mailbox.html">
+                                        <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                            <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
+                            <li>
+                                <a href="mailbox.html">
+                                    <div>
+                                        <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="profile.html">
+                                    <div>
+                                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                        <span class="pull-right text-muted small">12 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="grid_options.html">
+                                    <div>
+                                        <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <div class="text-center link-block">
+                                    <a href="notifications.html">
+                                        <strong>See All Alerts</strong>
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="{{ path('logout') }}">
+                            <i class="fa fa-sign-out"></i> Log out
+                        </a>
+                    </li>
+                    <li>
+                        <a class="right-sidebar-toggle">
+                            <i class="fa fa-tasks"></i>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+
+        {% include 'admin/_flash.html.twig' %}
+
+        {% block content %}{% endblock %}
+    </div>
+</div>
+
+<script src="{{ asset('admin/js/jquery-2.1.1.js') }}"></script>
+<script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('admin/js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
+<script src="{{ asset('admin/js/inspinia.js') }}"></script>
+<script src="{{ asset('admin/js/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+<script src="{{ asset('admin/js/plugins/toastr/toastr.min.js') }}"></script>
+</body>
+</html>

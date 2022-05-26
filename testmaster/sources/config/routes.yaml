@@ -1,0 +1,21 @@
+nonLocale:
+    path: /
+    controller: App\Controller\DefaultController::defaultLocale
+
+app:
+  prefix:       /{_locale}/
+  type: annotation
+  resource: ../src/Controller/*
+  requirements:
+    _locale: en|ru|uk|fr|de
+
+admin:
+  prefix:       /{_locale}/admin
+  type: annotation
+  resource: ../src/Controller/Admin/*
+  requirements:
+    _locale: en|ru|uk|fr|de
+
+logout:
+  path: /logout
+  methods: GET
