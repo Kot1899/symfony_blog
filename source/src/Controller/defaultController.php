@@ -8,15 +8,14 @@
 namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
-
-
-class defaulController{
+use \Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+class defaultController extends AbstractController{
     /**
      * @Route("/", name="second_index")
      */
     public function index(){
-        echo' HELLO FROM defaultController with "index" method';
-        die;
+        return $this->render('default/index.html.twig');
     }
 }
 

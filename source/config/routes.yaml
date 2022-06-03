@@ -9,4 +9,4 @@ kernel:
 
 #user_test:
 #    path: /user/test
-#    controller: App\Controller\userController::test
+#    controller: App\Controller\happykotController::test

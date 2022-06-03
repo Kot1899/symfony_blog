@@ -37,6 +37,11 @@
       <path value="$PROJECT_DIR$/source/vendor/doctrine/annotations" />
       <path value="$PROJECT_DIR$/source/vendor/doctrine/lexer" />
       <path value="$PROJECT_DIR$/source/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/source/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/source/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/source/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/source/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/source/vendor/twig/extra-bundle" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />
