@@ -14,10 +14,12 @@ use Symfony\Component\Routing\Annotation\Route;
 use \Symfony\Component\HttpFoundation\Response;
 
 //use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-class luckyController
+class LuckyController
 {
     /**
      * @Route("/luckyCon/number", name="lucky_number")
+     * @return response
+     * @author Vitali Romanenko
      */
     public function number()
     {

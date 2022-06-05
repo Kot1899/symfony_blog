@@ -13,19 +13,21 @@ use \Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
- * @autor Vitali Romanenko <vit.romanenko@gmail.com>
+ * @author Vitali Romanenko <vit.romanenko@gmail.com>
  */
-class defaultController extends AbstractController
+class DefaultController extends AbstractController
 {
     /**
      * @Route("/", name="default_index")
+     * @return response
+     * @author Vitali Romanenko
      */
     public function index()
     {
-        $a = 10;
-        $b = 20;
+        $number1 = 10;
+        $number2 = 20;
         $userName = 'Alex';
-        $c = $a + $b;
+        $numberSum = $number1 + $number2;
         $users = [
             ['id' => 1, 'name' => 'Alex'],
             ['id' => 2, 'name' => 'Mike'],
@@ -34,7 +36,7 @@ class defaultController extends AbstractController
         return $this->render(
             'default/index.html.twig',
             [
-            'c' => $c,
+            'numberSum' => $numberSum,
             'userName' => $userName,
                 'users' => $users,
             ]
@@ -42,6 +44,8 @@ class defaultController extends AbstractController
     }
     /**
      * @Route("/about", name="default_about")
+     * @return response
+     * @author Vitali Romanenko
      */
     public function about()
     {
@@ -50,6 +54,8 @@ class defaultController extends AbstractController
 
     /**
      * @Route("/feedback", name="default_feedback")
+     * @return response
+     * @author Vitali Romanenko
      */
     public function feedback()
     {
