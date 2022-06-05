@@ -12,6 +12,7 @@ namespace App\Controller;
 //use http\Env\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use \Symfony\Component\HttpFoundation\Response;
+
 //use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class luckyController
 {
@@ -20,7 +21,7 @@ class luckyController
      */
     public function number()
     {
-        $message= 'hello it is first method "number" for home task without abstract_controller ';
+        $message = 'hello it is first method "number" for home task without abstract_controller ';
         return new Response($message);
     }
 }

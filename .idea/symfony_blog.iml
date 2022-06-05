@@ -46,6 +46,9 @@
       <excludeFolder url="file://$MODULE_DIR$/source/vendor/symfony/twig-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/source/vendor/twig/twig" />
       <excludeFolder url="file://$MODULE_DIR$/source/vendor/twig/extra-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/squizlabs/php_codesniffer" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/phpmd/phpmd" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/pdepend/pdepend" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

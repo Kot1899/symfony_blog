@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="MessDetector">
+    <phpmd_settings>
+      <MessDetectorConfiguration tool_path="$PROJECT_DIR$/source/vendor/bin/phpmd" />
+    </phpmd_settings>
+  </component>
+  <component name="PhpCodeSniffer">
+    <phpcs_settings>
+      <PhpCSConfiguration beautifier_path="$PROJECT_DIR$/source/vendor/bin/phpcbf" tool_path="$PROJECT_DIR$/source/vendor/bin/phpcs" />
+    </phpcs_settings>
+  </component>
   <component name="PhpIncludePathManager">
     <include_path>
       <path value="$PROJECT_DIR$/source/vendor/symfony/polyfill-intl-grapheme" />
@@ -42,6 +52,9 @@
       <path value="$PROJECT_DIR$/source/vendor/symfony/twig-bundle" />
       <path value="$PROJECT_DIR$/source/vendor/twig/twig" />
       <path value="$PROJECT_DIR$/source/vendor/twig/extra-bundle" />
+      <path value="$PROJECT_DIR$/source/vendor/squizlabs/php_codesniffer" />
+      <path value="$PROJECT_DIR$/source/vendor/phpmd/phpmd" />
+      <path value="$PROJECT_DIR$/source/vendor/pdepend/pdepend" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />
