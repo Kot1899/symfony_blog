@@ -49,6 +49,27 @@
       <excludeFolder url="file://$MODULE_DIR$/source/vendor/squizlabs/php_codesniffer" />
       <excludeFolder url="file://$MODULE_DIR$/source/vendor/phpmd/phpmd" />
       <excludeFolder url="file://$MODULE_DIR$/source/vendor/pdepend/pdepend" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/doctrine/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/doctrine/dbal" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/doctrine/event-manager" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/doctrine/orm" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/doctrine/deprecations" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/doctrine/sql-formatter" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/doctrine/doctrine-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/doctrine/common" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/doctrine/collections" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/doctrine/migrations" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/doctrine/instantiator" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/doctrine/doctrine-migrations-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/doctrine/inflector" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/doctrine/persistence" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/friendsofphp/proxy-manager-lts" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/laminas/laminas-code" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/symfony/proxy-manager-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/symfony/doctrine-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/symfony/stopwatch" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/nikic/php-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/symfony/maker-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -11,7 +11,8 @@ namespace App\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use \Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
+use App\Entity\Post;
+use Doctrine\ORM\EntityManagerInterface;
 /**
  * @author Vitali Romanenko <vit.romanenko@gmail.com>
  */
@@ -60,5 +61,28 @@ class DefaultController extends AbstractController
     public function feedback()
     {
         return $this->render('default/feedback.html.twig');
+    }
+
+    /**
+     * @Route("/create", name="default_create")
+     * @return response
+     * @author Vitali Romanenko
+     */
+    public function CreatePost()
+    {
+        $post= new Post();
+        $post->setName('Name my post');
+        $post->setDescription('It is my first description for my local post');
+        $post->setPublishedAt(new \DateTime());
+//todo эта часть с getDoctrine ->getManager не рабоет, нужно переделать
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($post);
+        $em->flush();
+
+
+        echo '<pre>';
+        var_dump($post);
+
+        return new Response('ok, well done');
     }
 }
