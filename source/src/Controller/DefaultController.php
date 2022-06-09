@@ -9,10 +9,12 @@
 namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
-use \Symfony\Component\HttpFoundation\Response;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Post;
-use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\DoctrineBundle\Registry;
+use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 /**
  * @author Vitali Romanenko <vit.romanenko@gmail.com>
  */
@@ -65,24 +67,25 @@ class DefaultController extends AbstractController
 
     /**
      * @Route("/create", name="default_create")
+     * @param ManagerRegistry $doctrine
      * @return response
      * @author Vitali Romanenko
      */
-    public function CreatePost()
+    public function Post(ManagerRegistry $doctrine): Response
     {
-        $post= new Post();
+        $entityManager = $doctrine->getManager();
+
+        $post = new Post();
         $post->setName('Name my post');
         $post->setDescription('It is my first description for my local post');
-        $post->setPublishedAt(new \DateTime());
-//todo эта часть с getDoctrine ->getManager не рабоет, нужно переделать
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($post);
-        $em->flush();
+        $post->setPublicAt(new \DateTime());
 
+        $entityManager->persist($post);
+        $entityManager->flush();
 
         echo '<pre>';
         var_dump($post);
+        return new Response('well done? it is ok');
 
-        return new Response('ok, well done');
     }
 }
