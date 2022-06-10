@@ -82,7 +82,11 @@ class DefaultController extends AbstractController
 
         $post = new Post();
         $post->setName('Name my post №'. rand(0,100));;
-        $post->setDescription('It is my first description for my local post'. rand(0,100));;
+        $text="This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, lists, tables, images, 
+code, and more are all supported as expected.
+          This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text 
+          affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.";
+        $post->setDescription($text. rand(0,100));;
         $post->setPublicAt(new \DateTime());
 
         $entityManager->persist($post);
@@ -95,22 +99,23 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/get/{id}", name="default_get")
+     * @Route("/get", name="default_get")
      * @param ManagerRegistry $doctrine
      * @return response
      * @author Vitali Romanenko
      * description - its method #1 fetching POST from DB (something SELECT) - P.S. default use IT method
      */
 
-    public function Get(ManagerRegistry $doctrine, int $id): Response
+    public function Get(ManagerRegistry $doctrine): Response
     {
         $repository = $doctrine->getRepository(Post::class);
         // look for a single Product by id
-        $post_get = $repository->find($id);
+        $post_get = $repository->find(17);
         //  это просто проверка на наличие такого номера
             if (!$post_get) {
                 throw $this->createNotFoundException(
-                    'Hi guys, No post found for id' . $id
+                    'Hi guys, No post found for id'
+//                    . $id
                 );
             }
 

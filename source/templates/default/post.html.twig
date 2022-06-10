@@ -1,5 +1,15 @@
 {% extends'layout.html.twig' %}
 
   {% block body %}
-{{ post.getName() }}
+      <div class="row g-5">
+          <div class="col-md-8">
+              <article class="blog-post">
+                  <h2 class="blog-post-title">{{ post.getName() }}</h2>
+                  <p class="blog-post-meta">{{ post.getPublicAt()| date('Y-m-d') }} by <a href="#">Mark</a></p>
+                  <p>
+                  {{ post.getDescription() }}
+                  </p>
+              </article>
+          </div>
+      </div>
   {% endblock %}
