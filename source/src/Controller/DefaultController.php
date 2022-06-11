@@ -11,6 +11,7 @@ namespace App\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Post;
+use App\Entity\Author;
 use App\Repository\PostRepository;
 use Doctrine\DoctrineBundle\Registry;
 use Doctrine\Persistence\ManagerRegistry;
@@ -59,6 +60,17 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @Route("/author/kile", name="default_kile")
+     * @return response
+     * @author Vitali Romanenko
+     * description - it is link about author Kile
+     */
+    public function kile()
+    {
+        return $this->render('default/kile.html.twig');
+    }
+
+    /**
      * @Route("/feedback", name="default_feedback")
      * @return response
      * @author Vitali Romanenko
@@ -70,7 +82,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/create", name="default_create")
+     * @Route("/create_post", name="default_create")
      * @param ManagerRegistry $doctrine
      * @return response
      * @author Vitali Romanenko
@@ -99,7 +111,7 @@ code, and more are all supported as expected.
     }
 
     /**
-     * @Route("/get", name="default_get")
+     * @Route("/get_post", name="default_get_post")
      * @param ManagerRegistry $doctrine
      * @return response
      * @author Vitali Romanenko
@@ -135,9 +147,11 @@ code, and more are all supported as expected.
 //            'post_get2: '. $post_get2->getId() .'<br/>'.
 //            'post_get3:' . $post_get3->getId() .'<br/>'
 //        );
-
+        $repository = $doctrine->getRepository(Author::class);
+        $author_get = $repository->find(1);
         return $this->render('default/post.html.twig', [
             'post'=>$post_get,
+            'author'=>$author_get,
         ]);
     }
 
@@ -155,4 +169,25 @@ code, and more are all supported as expected.
         return new Response('well done, it is ok, u post - ' . $post_get2->getName());
     }
 */
+
+    /**
+     * @Route("/create_author", name="default_create_author")
+     * @param ManagerRegistry $doctrine
+     * @return response
+     * @author Vitali Romanenko
+         * description - its method write new AUTHOR to DB
+     */
+    public function Author(ManagerRegistry $doctrine): Response
+    {
+        $entityManager_PA = $doctrine->getManager();
+
+        $author = new Author();
+        $author->setAuthor('Kile');
+        $entityManager_PA->persist($author);
+        $entityManager_PA->flush();
+
+        return new Response('new AUTHOR was wrote');
+    }
+
 }
+

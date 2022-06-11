@@ -5,7 +5,8 @@
           <div class="col-md-8">
               <article class="blog-post">
                   <h2 class="blog-post-title">{{ post.getName() }}</h2>
-                  <p class="blog-post-meta">{{ post.getPublicAt()| date('Y-m-d') }} by <a href="#">Mark</a></p>
+                  <p class="blog-post-meta">{{ post.getPublicAt()| date('Y-m-d') }} by
+                      <a href="{{ path('default_kile') }}">{{ author.getAuthor }}</a></p>
                   <p>
                   {{ post.getDescription() }}
                   </p>
