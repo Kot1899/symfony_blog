@@ -4,13 +4,24 @@
       <div class="row g-5">
           <div class="col-md-8">
               <article class="blog-post">
-                  <h2 class="blog-post-title">{{ post.getName() }}</h2>
-                  <p class="blog-post-meta">{{ post.getPublicAt()| date('Y-m-d') }} by
+
+                  {% for v in posts %}
+                  {% if v.id>14 %}
+                  <h2 class="blog-post-title">
+                     {{ v.getName() }} <br/>
+                  </h2>
+                  <p class="blog-post-meta">
+                      {{ v.getPublicAt()| date('Y-m-d') }}
+                      by
                       <a href="{{ path('default_kile') }}">{{ author.getAuthor }}</a></p>
                   <p>
-                  {{ post.getDescription() }}
-                  </p>
-              </article>
+                      {{ v.getDescription() }}
+                      {%  endif %}
+                      {% endfor %}
+                   </article>
           </div>
       </div>
   {% endblock %}
+
+
+

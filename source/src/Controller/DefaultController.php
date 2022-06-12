@@ -93,12 +93,14 @@ class DefaultController extends AbstractController
         $entityManager = $doctrine->getManager();
 
         $post = new Post();
-        $post->setName('Name my post №'. rand(0,100));;
-        $text="This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, lists, tables, images, 
+        $post->setName('Name my post №'. rand(0, 100));
+        ;
+        $text = "This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, lists, tables, images, 
 code, and more are all supported as expected.
           This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text 
           affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.";
-        $post->setDescription($text. rand(0,100));;
+        $post->setDescription($text. rand(0, 100));
+        ;
         $post->setPublicAt(new \DateTime());
 
         $entityManager->persist($post);
@@ -124,19 +126,19 @@ code, and more are all supported as expected.
         // look for a single Product by id
         $post_get = $repository->find(17);
         //  это просто проверка на наличие такого номера
-            if (!$post_get) {
-                throw $this->createNotFoundException(
-                    'Hi guys, No post found for id'
-//                    . $id
-                );
-            }
+        if (!$post_get) {
+            throw $this->createNotFoundException(
+                'Hi guys, No post found for id'
+                //                    . $id
+            );
+        }
 
         // look for a single Product by name
         $post_get2 = $repository->findOneBy(['name' => 'Name my post №55']);
         // or find by name and description
         $post_get3 = $repository->findOneBy([
             'name' => 'Name my post №85',
-            'description'=>'It is my first description for my local post64'
+            'description' => 'It is my first description for my local post64',
         ]);
         // look for *all* Post objects
         $post_get4 = $repository->findAll();
@@ -150,8 +152,8 @@ code, and more are all supported as expected.
         $repository = $doctrine->getRepository(Author::class);
         $author_get = $repository->find(1);
         return $this->render('default/post.html.twig', [
-            'post'=>$post_get,
-            'author'=>$author_get,
+            'posts' => $post_get4,
+            'author' => $author_get,
         ]);
     }
 
@@ -175,7 +177,7 @@ code, and more are all supported as expected.
      * @param ManagerRegistry $doctrine
      * @return response
      * @author Vitali Romanenko
-         * description - its method write new AUTHOR to DB
+     * description - its method write new AUTHOR to DB
      */
     public function Author(ManagerRegistry $doctrine): Response
     {
@@ -188,6 +190,4 @@ code, and more are all supported as expected.
 
         return new Response('new AUTHOR was wrote');
     }
-
 }
-
