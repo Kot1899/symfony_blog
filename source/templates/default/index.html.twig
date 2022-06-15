@@ -4,16 +4,18 @@
       <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
           <div class="col-md-6 px-0">
               <h1 class="display-4 fst-italic">It is name of newspace </h1>
+{# }
+              exaple with variable
+              <h1 class="display-4 fst-italic">{{ userName }} {{ c }} лет и с масссива {{ users.1.name }}</h1>
 
-{#              <h1 class="display-4 fst-italic">{{ userName }} {{ c }} лет и с масссива {{ users.1.name }}</h1>#}
-
-{#              <h1 class="display-4 fst-italic">#}
-{#                  {% for v in users %}#}
-{#                      {% if v.id>1 %}#}
-{#                      {{ v.id }}, {{ v.name }} <br/>#}
-{#                      {%  endif %}#}
-{#                  {% endfor %}#}
-{#              </h1>#}
+              <h1 class="display-4 fst-italic">
+                  {% for v in users %}
+                      {% if v.id>1 %}
+                      {{ v.id }}, {{ v.name }} <br/>
+                      {%  endif %}
+                  {% endfor %}
+#}
+              </h1>
               <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
               <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
           </div>
@@ -22,41 +24,22 @@
           <div class="col-md-8">
 
               <article class="blog-post">
-                  <h2 class="blog-post-title">Sample blog post</h2>
-                  <p class="blog-post-meta">January 1, 2021 by <a href="#">Mark</a></p>
-
-                  <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, lists, tables, images, code, and more are all supported as expected.</p>
-                  <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
-                  <pre><code>Example code block</code></pre>
-                  <p>This is some additional paragraph placeholder content. It's a slightly shorter version of the other highly repetitive body text used throughout.</p>
+                 {% for v in posts %}
+                  {% if v.id>14 %}
+                  <h2 class="blog-post-title">
+                      {{ v.getName }}
+                      <br/>
+                  </h2>
+                  <p class="blog-post-meta">
+                  {{ v.getPublicAt()| date('Y-m-d') }}
+                      by
+                      <a href="{{ path('default_kile') }}">{{ author.getAuthor }}</a></p>
+                  <p>
+                      {{ v.getDescription() }}
+                      {%  endif %}
+                      {% endfor %}
+                  </p>
               </article>
-
-              <article class="blog-post">
-                  <h2 class="blog-post-title">Another blog post</h2>
-                  <p class="blog-post-meta">December 23, 2020 by <a href="#">Jacob</a></p>
-
-                  <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
-                  <blockquote>
-                      <p>Longer quote goes here, maybe with some <strong>emphasized text</strong> in the middle of it.</p>
-                  </blockquote>
-                  <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
-                  <p>And don't forget about tables in these posts:</p>
-                  <p>This is some additional paragraph placeholder content. It's a slightly shorter version of the other highly repetitive body text used throughout.</p>
-              </article>
-
-              <article class="blog-post">
-                  <h2 class="blog-post-title">New feature</h2>
-                  <p class="blog-post-meta">December 14, 2020 by <a href="#">Chris</a></p>
-
-                  <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
-                  <ul>
-                      <li>First list item</li>
-                      <li>Second list item with a longer description</li>
-                      <li>Third list item to close it out</li>
-                  </ul>
-                  <p>This is some additional paragraph placeholder content. It's a slightly shorter version of the other highly repetitive body text used throughout.</p>
-              </article>
-
               <nav aria-label="Page navigation example">
                   <ul class="pagination">
                       <li class="page-item"><a class="page-link" href="#">Previous</a></li>
@@ -66,7 +49,6 @@
                       <li class="page-item"><a class="page-link" href="#">Next</a></li>
                   </ul>
               </nav>
-
           </div>
 
           <div class="col-md-4">

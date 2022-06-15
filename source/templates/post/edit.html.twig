@@ -1,8 +1,11 @@
 {% extends'layout.html.twig' %}
 
   {% block body %}
-    page with new created post
-    <br>
+    page with ! edit post
+    <h4> Edit the post
+        "{{ post.getName }}"
+    </h4>
+
     <div class="row">
       <div class="col-5">
         {{ form(postFormNew) }}

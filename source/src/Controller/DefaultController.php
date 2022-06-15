@@ -28,23 +28,23 @@ class DefaultController extends AbstractController
      * @author Vitali Romanenko
      * description - main method
      */
-    public function index()
+    public function index(ManagerRegistry $doctrine): Response
     {
-        $number1 = 10;
-        $number2 = 20;
-        $userName = 'Alex';
-        $numberSum = $number1 + $number2;
-        $users = [
+       $users = [
             ['id' => 1, 'name' => 'Alex'],
             ['id' => 2, 'name' => 'Mike'],
             ['id' => 3, 'name' => 'Kile']
         ];
+        $repository = $doctrine->getRepository(Post::class);
+        $post_get4 = $repository->findAll();
+        $repository = $doctrine->getRepository(Author::class);
+        $author_get = $repository->find(1);
         return $this->render(
             'default/index.html.twig',
             [
-            'numberSum' => $numberSum,
-            'userName' => $userName,
-                'users' => $users,
+            'users' => $users,
+            'posts' => $post_get4,
+            'author' => $author_get,
             ]
         );
     }
@@ -112,50 +112,7 @@ code, and more are all supported as expected.
 
     }
 
-    /**
-     * @Route("/get_post", name="default_get_post")
-     * @param ManagerRegistry $doctrine
-     * @return response
-     * @author Vitali Romanenko
-     * description - its method #1 fetching POST from DB (something SELECT) - P.S. default use IT method
-     */
 
-    public function Get(ManagerRegistry $doctrine): Response
-    {
-        $repository = $doctrine->getRepository(Post::class);
-        // look for a single Product by id
-        $post_get = $repository->find(17);
-        //  это просто проверка на наличие такого номера
-        if (!$post_get) {
-            throw $this->createNotFoundException(
-                'Hi guys, No post found for id'
-                //                    . $id
-            );
-        }
-
-        // look for a single Product by name
-        $post_get2 = $repository->findOneBy(['name' => 'Name my post №55']);
-        // or find by name and description
-        $post_get3 = $repository->findOneBy([
-            'name' => 'Name my post №85',
-            'description' => 'It is my first description for my local post64',
-        ]);
-        // look for *all* Post objects
-        $post_get4 = $repository->findAll();
-
-//        example of return:
-//        return new Response(
-//            'well done? it is ok' .$post_get->getName() .'<br/>'.
-//            'post_get2: '. $post_get2->getId() .'<br/>'.
-//            'post_get3:' . $post_get3->getId() .'<br/>'
-//        );
-        $repository = $doctrine->getRepository(Author::class);
-        $author_get = $repository->find(1);
-        return $this->render('default/post.html.twig', [
-            'posts' => $post_get4,
-            'author' => $author_get,
-        ]);
-    }
 
     /**
      * @Route("/get2/{id}", name="default_get")

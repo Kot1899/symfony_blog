@@ -1,5 +1,5 @@
 <?php
-/*
+
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
@@ -18,14 +18,15 @@ class postForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
        $builder->add('name', TextType::class,[
-            'attr'=>['class'=>'form-control']
+//            'attr'=>['class'=>'form-control',
+                'label'=>'Name label'
         ]);
         $builder->add('description', TextareaType::class,[
             'attr'=>['class'=>'form-control']
         ]);
         $builder->add('public_at', DateType::class,[
             'widget'=>'single_text',
-            'label'=>'Public at:'
+            'label'=>'PubliC at:'
         ]);
         $builder->add('submit', SubmitType::class,[
             'attr'=>['class'=>'form-control',
@@ -34,4 +35,3 @@ class postForm extends AbstractType
     }
 }
 
-*/
