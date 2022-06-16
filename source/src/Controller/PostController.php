@@ -11,10 +11,6 @@ use App\Repository\PostRepository;
 use Doctrine\DoctrineBundle\Registry;
 use Doctrine\Persistence\ManagerRegistry;
 
-//use Symfony\Component\Form\Extension\Core\Type\DateType;
-//use Symfony\Component\Form\Extension\Core\Type\TextType;
-//use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-//use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use \Symfony\Component\HttpFoundation\Response;
@@ -52,7 +48,9 @@ class PostController extends AbstractController
     }
 
     /**
-     * @Route("/editpost/{id}", name="post_editMyPost")
+     * @Route("/editPost/{id}", name="post_editMyPost")
+     * @param ManagerRegistry $doctrine
+     * @param Request $request
      * @return response
      * description - method for edit new posts
      */
@@ -79,18 +77,17 @@ class PostController extends AbstractController
         );
     }
     /**
-     * @Route("/getpost", name="default_getpost")
+     * @Route("/showPost/{postId}", name="post_showPost")
      * @param ManagerRegistry $doctrine
      * @return response
      * @author Vitali Romanenko
      * description - its method #1 fetching POST from DB (something SELECT) - P.S. default use IT method
      */
 
-    public function Get(ManagerRegistry $doctrine): Response
+    public function showPost(ManagerRegistry $doctrine, int $postId): Response
     {
         $repository = $doctrine->getRepository(Post::class);
-        // look for a single Product by id
-        $post_get = $repository->find(17);
+        $post_get = $repository->find($postId);
         //  это просто проверка на наличие такого номера
         if (!$post_get) {
             throw $this->createNotFoundException(
@@ -98,14 +95,11 @@ class PostController extends AbstractController
             //                    . $id
             );
         }
-        // look for a single Product by name
         $post_get2 = $repository->findOneBy(['name' => 'Name my post №55']);
-        // or find by name and description
         $post_get3 = $repository->findOneBy([
             'name' => 'Name my post №85',
             'description' => 'It is my first description for my local post64',
         ]);
-        // look for *all* Post objects
         $post_get4 = $repository->findAll();
 //        example of return:
 //        return new Response(
@@ -115,8 +109,9 @@ class PostController extends AbstractController
 //        );
         $repository = $doctrine->getRepository(Author::class);
         $author_get = $repository->find(1);
-        return $this->render('default/post.html.twig', [
+        return $this->render('post/showPost.html.twig', [
             'posts' => $post_get4,
+            'post' => $post_get,
             'author' => $author_get,
         ]);
     }

@@ -24,6 +24,7 @@ class DefaultController extends AbstractController
 {
     /**
      * @Route("/", name="default_index")
+     * @param ManagerRegistry $doctrine
      * @return response
      * @author Vitali Romanenko
      * description - main method
