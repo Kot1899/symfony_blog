@@ -107,6 +107,7 @@ class PostController extends AbstractController
 //            'post_get2: '. $post_get2->getId() .'<br/>'.
 //            'post_get3:' . $post_get3->getId() .'<br/>'
 //        );
+
         $repository = $doctrine->getRepository(Author::class);
         $author_get = $repository->find(1);
         return $this->render('post/showPost.html.twig', [
