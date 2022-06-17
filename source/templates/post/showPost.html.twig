@@ -10,7 +10,8 @@
                   <p class="blog-post-meta">
                       {{ post.getPublicAt()| date('Y-m-d') }}
                       by
-                      <a href="{{ path('default_kile') }}">{{ author.getAuthor }}</a></p>
+                      <a href="{{ path('default_kile') }}">{{ author.getAuthor }}</a>
+                      <a href="{{ path('post_editMyPost', {id: post.getId}) }}">edit post</a></p>
                   <p>
                       {{ post.getDescription() }}
                    </article>
