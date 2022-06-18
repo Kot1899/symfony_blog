@@ -6,7 +6,6 @@ use App\Entity\Author;
 use App\Entity\Post;
 use App\Form\postForm;
 
-//use App\Controller\ManagerRegistry;
 use App\Repository\PostRepository;
 use Doctrine\DoctrineBundle\Registry;
 use Doctrine\Persistence\ManagerRegistry;
@@ -24,12 +23,13 @@ class PostController extends AbstractController
     /**
      * @Route("/newpost", name="post_createPost")
      * @return response
+     * @return redirectToRoute перенаправляе страницу на просмотр после создания
      * description - method for creating new posts
      */
     public function createPost(ManagerRegistry $doctrine, Request $request ): Response
     {
         $mypost = new Post();
-        $mypost->setName('new post from lesson#6');
+        $mypost->setName('new post from lesson#'. rand(0,50));
         $mypost->setPublicAt(new \DateTime());
 
         $postFormNew=$this->createForm(postForm::class, $mypost);
@@ -39,7 +39,12 @@ class PostController extends AbstractController
                 $entityManager_PA = $doctrine->getManager();
                 $entityManager_PA->persist($mypost);
                 $entityManager_PA->flush();
+
+                return $this->redirectToRoute('post_showPost',[
+                    'postId'=>$mypost->getId(),
+                ]);
             }
+
         return $this->render('post/create.html.twig', [
                 'post' => $mypost,
                 'postFormNew' => $postFormNew->createView(),
@@ -48,51 +53,52 @@ class PostController extends AbstractController
     }
 
     /**
-     * @Route("/editPost/{id}", name="post_editMyPost")
+     * @Route("/editPost/{postId}", name="post_editMyPost")
      * @param ManagerRegistry $doctrine
      * @param Request $request
      * @return response
+     * @return redirectToRoute перенаправляе страницу на просмотр после редактирования
      * description - method for edit new posts
      */
-    public function editMyPost(ManagerRegistry $doctrine, int $id, Request $request): Response
+    public function editMyPost(ManagerRegistry $doctrine, Post $postId, Request $request): Response
     {
-        $repository = $doctrine->getRepository(Post::class);
-        // look for a single Product by id
-        $mypost = $repository->find($id);
-
-        $postFormNew=$this->createForm(postForm::class, $mypost);
-
+        $postFormNew=$this->createForm(postForm::class, $postId);
         $postFormNew->handleRequest($request);
         if( $postFormNew->isSubmitted() && $postFormNew->isValid())
         {
             $entityManager_PA = $doctrine->getManager();
-            $entityManager_PA->persist($mypost);
+            $entityManager_PA->persist($postId);
             $entityManager_PA->flush();
+
+            return $this->redirectToRoute('post_showPost',[
+                'postId'=>$postId->getId(),
+            ]);
         }
 
         return $this->render('post/edit.html.twig', [
-                'post' => $mypost,
+                'postId' => $postId,
                 'postFormNew' => $postFormNew->createView(),
             ]
         );
     }
+
     /**
-     * @Route("/showPost/{postId}", name="post_showPost")
+     * @Route("/showpostId/{postId}", name="post_showPostId")
      * @param ManagerRegistry $doctrine
      * @return response
      * @author Vitali Romanenko
+     * ЧЕРЕЗ ID КАК ПАРАМЕТЕР РОУТА (вариант рабочий но приметивный, old school)
      * description - its method #1 fetching POST from DB (something SELECT) - P.S. default use IT method
      */
-
-    public function showPost(ManagerRegistry $doctrine, int $postId): Response
+/*
+    public function showPostId(ManagerRegistry $doctrine, int $postId): Response
     {
         $repository = $doctrine->getRepository(Post::class);
         $post_get = $repository->find($postId);
         //  это просто проверка на наличие такого номера
         if (!$post_get) {
             throw $this->createNotFoundException(
-                'Hi guys, No post found for id'
-            //                    . $id
+                'Hi guys, No post found for id'. $postId
             );
         }
         $post_get2 = $repository->findOneBy(['name' => 'Name my post №55']);
@@ -107,7 +113,6 @@ class PostController extends AbstractController
 //            'post_get2: '. $post_get2->getId() .'<br/>'.
 //            'post_get3:' . $post_get3->getId() .'<br/>'
 //        );
-
         $repository = $doctrine->getRepository(Author::class);
         $author_get = $repository->find(1);
         return $this->render('post/showPost.html.twig', [
@@ -116,7 +121,26 @@ class PostController extends AbstractController
             'author' => $author_get,
         ]);
     }
+*/
+
+    /**
+     * @Route("/showpost/{postId}", name="post_showPost")
+     * @param ManagerRegistry $doctrine
+     * @return response
+     * @author Vitali Romanenko
+     * ЧЕРЕЗ PARAMCONVERTOR КАК ПАРАМЕТЕР РОУТА (вариант современный)
+     * description - its method #1 fetching POST from DB (something SELECT) - P.S. default use IT method
+     */
+    public function showPost(ManagerRegistry $doctrine, Post $postId): Response
+    {
+        $repository = $doctrine->getRepository(Author::class);
+        $author_get = $repository->find(1);
+        return $this->render('post/showPost.html.twig', [
+            'postId' => $postId,
+            'author' => $author_get,
+        ]);
+    }
 }
 
-//1.33.28
+
 
