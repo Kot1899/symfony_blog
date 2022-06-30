@@ -7,10 +7,14 @@ use App\Entity\Post;
 use App\Form\postForm;
 
 use App\Repository\PostRepository;
+use App\Service\PostExporterCsv;
+use App\Service\PostExporterHtml;
+use App\Service\PostExporterInterface;
 use Doctrine\DoctrineBundle\Registry;
 use Doctrine\Persistence\ManagerRegistry;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\Routing\Annotation\Route;
 use \Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,6 +24,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  */
 class PostController extends AbstractController
 {
+
     /**
      * @Route("/newpost", name="post_createPost")
      * @return response
@@ -140,6 +145,82 @@ class PostController extends AbstractController
             'author' => $author_get,
         ]);
     }
+
+    /**
+     * @Route("/download/{postId}.csv" , name = "post_download_csv")
+     *
+     * @param Post            $post
+     * @param PostExporterCsv $exporterCsv
+     *
+     * @phpstan-return  Response
+     */
+    public function downloadPostExporterCsv(Post $post,PostExporterCsv $exporterCsv)
+    {
+        $exporterCsv->setPost($post);
+        $content= $exporterCsv->export();
+
+        $filename=$post->getName() . '.' . $exporterCsv->getFileExtention();
+
+        //return a response with a specific content
+        $response = new Response($content);
+
+        //create the disposition of the file
+        $disposition = $response->headers->makeDisposition(
+            ResponseHeaderBag::DISPOSITION_ATTACHMENT, $filename
+        );
+
+        //set disposition content
+        $response->headers->set('Content-Disposition', $disposition);
+
+        //dispatch request
+        return  $response;
+    }
+
+    /**
+     * @Route("/download/{postId}.html" , name = "post_download_html")
+     *
+     * @param Post            $post
+     * @param PostExporterHtml $exporterHtml
+     *
+     * @phpstan-return  Response
+     */
+    public function downloadPostExporterHtml(Post $post,PostExporterCsv $exporterHtml)
+    {
+        $exporterHtml->setPost($post);
+        $content= $exporterHtml->export();
+
+        $filename=$post->getName() . '.' . $exporterHtml->getFileExtention();
+
+        //return a response with a specific content
+        $response = new Response($content);
+
+        //create the disposition of the file
+        $disposition = $response->headers->makeDisposition(
+            ResponseHeaderBag::DISPOSITION_ATTACHMENT, $filename
+        );
+
+        //set disposition content
+        $response->headers->set('Content-Disposition', $disposition);
+
+        //dispatch request
+        return  $response;
+    }
+
+    /**
+     * @Route("/download/{postId}" , name= "download_post")
+     * @phpstan-param Post                  $post
+     * @phpstan-param PostExporterInterface $exporter
+     *
+     * @phpstan-return Response
+     */
+    public function downloadAction(Post $post, PostExporterInterface $exporter)
+    {
+        $exporter->setPost($post);
+        $content= $exporter->export();
+
+        return new Response ($content);
+    }
+
 }
 
 

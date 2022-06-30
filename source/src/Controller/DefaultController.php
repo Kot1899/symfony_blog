@@ -37,7 +37,7 @@ class DefaultController extends AbstractController
             ['id' => 3, 'name' => 'Kile']
         ];
         $repository = $doctrine->getRepository(Post::class);
-        $post_get4 = $repository->findAll();
+        $post_get4 = $repository->findAll(['public_at'=>'desc']);
         $repository = $doctrine->getRepository(Author::class);
         $author_get = $repository->find(1);
         return $this->render(
