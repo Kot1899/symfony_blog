@@ -1,3 +1,7 @@
+new string for control git
+
+
+
 /**
      * @Route("/create_post", name="default_create")
      * @param ManagerRegistry $doctrine
